@@ -959,17 +959,25 @@
     .then(data => {
       document.getElementById('navbar-placeholder').innerHTML = data;
 
-      // Initialize toggle behavior AFTER navbar is injected
-      const toggleBtn = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mainmenu');
+      const menuBtn = document.querySelector('.mobileMenuBar a');
+      const popupMenu = document.querySelector('.popup.popup__menu');
+      const closeBtn = document.getElementById('close-popup');
 
-      if (toggleBtn && menu) {
-        toggleBtn.addEventListener('click', function () {
-          menu.classList.toggle('active');
+      if (menuBtn && popupMenu) {
+        menuBtn.addEventListener('click', () => {
+          popupMenu.classList.add('active');
+        });
+      }
+
+      if (closeBtn && popupMenu) {
+        closeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          popupMenu.classList.remove('active');
         });
       }
     });
 </script>
+
 
 </body>
 
