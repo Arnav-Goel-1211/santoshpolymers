@@ -1036,29 +1036,12 @@
     <script src="js/theme.js"></script>
     <!-- Include All JS -->
     <script>
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-
-      const menuBtn = document.querySelector('.mobileMenuBar a');
-      const popupMenu = document.querySelector('.popup.popup__menu');
-      const closeBtn = document.getElementById('close-popup');
-
-      if (menuBtn && popupMenu) {
-        menuBtn.addEventListener('click', () => {
-          popupMenu.classList.add('active');
-        });
-      }
-
-      if (closeBtn && popupMenu) {
-        closeBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          popupMenu.classList.remove('active');
-        });
-      }
-    });
-</script>
+        fetch('navbar.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+          });
+      </script>
 
 
 </body>
