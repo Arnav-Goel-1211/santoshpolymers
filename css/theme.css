@@ -368,6 +368,44 @@ License URI:
     transition: all 0.6s 0s cubic-bezier(0.7, 0, 0.3, 1);
     width: 100%;
     z-index: 1000;
+    /* Existing CSS for .mainmenu ul li.menu-item-has-children > a */
+.dl-menu__wrap ul li.menu-item-has-children > a{
+    position: relative;
+}
+
+/* Add a new class for the toggler icon within the menu item */
+.dl-menu__wrap ul li.menu-item-has-children > a .submenu-toggle-icon {
+    display: none; /* Hidden by default for desktop */
+    position: absolute;
+    right: 14px; /* Adjust as needed to position the icon */
+    top: 2px; /* Adjust as needed to vertically align the icon */
+    content: "\f078"; /* Font Awesome chevron-down icon */
+    font-family: "Font Awesome 5 Pro";
+    font-size: 10px;
+    color: #fff;
+    line-height: 28px;
+    transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+    cursor: pointer; /* Indicate it's clickable */
+    z-index: 3; /* Ensure it's above the link text if needed */
+}
+
+/* Rotate the icon when the submenu is open (assuming a class 'submenu-open' is added by JS) */
+.dl-menu__wrap ul li.menu-item-has-children.submenu-open > a .submenu-toggle-icon {
+    transform: rotate(-180deg);
+}
+
+/* Media query to display the toggler only in mobile view */
+@media (max-width: 768px) { /* Adjust breakpoint as per your mobile menu breakpoint */
+    .dl-menu__wrap ul li.menu-item-has-children > a .submenu-toggle-icon {
+        display: inline-block; /* Show the toggler in mobile */
+    }
+
+    /* Adjust padding for menu items with togglers in mobile to prevent overlap */
+    .dl-menu__wrap ul li.menu-item-has-children > a {
+        padding-right: 40px; /* Make space for the toggler */
+    }
+}
+
 }
 .close-popup{
     background-color: #fff;

@@ -1047,13 +1047,26 @@
 
     <script src="js/theme.js"></script>
     <!-- Include All JS -->
-    <script>
-        fetch('navbar.html')
-          .then(res => res.text())
-          .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-          });
-      </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Toggle submenu on click
+    $('.mainmenu > ul > li > a').on('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        var $submenu = $(this).siblings('ul.sub_menu');
+
+        // Close other open submenus
+        $('.mainmenu ul.sub_menu').not($submenu).slideUp().parent().removeClass('active');
+
+        // Toggle the clicked submenu
+        $submenu.slideToggle();
+        $(this).parent().toggleClass('active');
+    });
+});
+</script>
 
 
 </body>
