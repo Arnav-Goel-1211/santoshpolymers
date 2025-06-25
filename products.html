@@ -80,9 +80,10 @@
                             <li><a href="Industries.html" >Industries</a></li>                       
                             <li><a >Products</a>
                                 <ul class="sub_menu">
-                                    <li><a href="products.html#pvc">Oleochemicals</a></li>
-                                    <li><a href="products.html#hdpe">Herbal Extracts</a></li>
-                                    <li><a href="products.html#ldpe">Paper Chemicals</a></li>
+                                    <li><a href="products.html#oleochemicals">Oleochemicals</a></li>
+                                    <li><a href="products.html#herbal-extracts">Herbal Extracts</a></li>
+                                    <li><a href="products.html#paper-chemicals">Paper Chemicals</a></li>
+                                    <li><a href="products.html#packaging-solutions">Packaging Solutions</a></li>
                                 </ul>
                             </li>
                             
@@ -728,6 +729,22 @@
     <script src="js/extensions/revolution.extension.video.min.js"></script>
 
     <script src="js/theme.js"></script>
+    <script>
+$(document).ready(function() {
+    // Toggle submenu on click
+    $('.mainmenu > ul > li > a').on('click', function(e) {
+        //e.preventDefault(); // Prevent default link behavior
+        var $submenu = $(this).siblings('ul.sub_menu');
+
+        // Close other open submenus
+        $('.mainmenu ul.sub_menu').not($submenu).slideUp().parent().removeClass('active');
+
+        // Toggle the clicked submenu
+        $submenu.slideToggle();
+        $(this).parent().toggleClass('active');
+    });
+});
+</script>
     <!-- Include All JS -->
 </body>
 
